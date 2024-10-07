@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <script type="module" src="../js/main.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="./favicon.svg">
+  <title>TP_01_Trivia_Jeu</title>
+</head>
+
+<body class="bg-theme_01-mauve min-h-screen flex flex-col justify-between flex-grow">
+  <header class="flex flex-row justify-between col-span-4 md:col-span-12 md:m-5">
+    <div class="flex flex-row items-center gap-10">
+      <img class="h-12" src="/img/icons/etoile_transparant.svg" alt="Étoile de ponctuation">
+      <span class="font-light text-6xl">00</span>
+    </div>
+    <div class="flex justify-center items-center"></div>
+    <img class="animate__animated animate__tada h-36 md:h-24 border-theme_01-noir" src="/img/logo/logo.png"
+      alt="Une bulle d'information mauve avec l'inscription Trivia au centre">
+    </div>
+  </header>
+
+  <main class="flex-grow flex flex-col items-center justify-end md:justify-center gap-28 md:gap-12 h-full">
+    <div class="flex flex-col justify-end gap-5 md:gap-10">
+
+      <section class="w-80 flex justify-center items-center">
+        <div
+          class="flex flex-col w-full md:p-5 border-2 border-theme_01-noir bg-theme_01-orange text-theme_01-noir font-normal text-2xl rounded-3xl shadow-custom-black ">
+          <span>00/00</span>
+          <div class="flex justify-center items-center text-center">
+            <span>Who was the original author of Frankenstein?</span>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="w-80 flex flex-col justify-end gap-2">
+      <button
+        class="animate__animated animate__bounceIn w-full mb-2 p-2 md:p-1 border-2 border-theme_01-noir bg-theme_01-orange text-theme_01-noir font-normal uppercase text-xl rounded-full shadow-custom-black md:shadow-none md:hover:shadow-custom-black hover:bg-theme_01-orange_fonce  active:bg-theme_01-orange_fonce  focus:bg-theme_01-orange_fonce ">01</button>
+      <button
+        class="animate__animated animate__bounceIn w-full mb-2 p-2 md:p-1 border-2 border-theme_01-noir bg-theme_01-orange text-theme_01-noir font-normal uppercase text-xl rounded-full shadow-custom-black md:shadow-none md:hover:shadow-custom-black hover:bg-theme_01-orange_fonce  active:bg-theme_01-orange_fonce  focus:bg-theme_01-orange_fonce">02</button>
+      <button
+        class="animate__animated animate__bounceIn w-full mb-2 p-2 md:p-1 border-2 border-theme_01-noir bg-theme_01-orange text-theme_01-noir font-normal uppercase text-xl rounded-full shadow-custom-black md:shadow-none md:hover:shadow-custom-black hover:bg-theme_01-orange_fonce  active:bg-theme_01-orange_fonce  focus:bg-theme_01-orange_fonce">03</button>
+      <button
+        class="animate__animated animate__bounceIn w-full mb-2 p-2 md:p-1 border-2 border-theme_01-noir bg-theme_01-orange text-theme_01-noir font-normal uppercase text-xl rounded-full shadow-custom-black md:shadow-none md:hover:shadow-custom-black hover:bg-theme_01-orange_fonce active:bg-theme_01-orange_fonce  focus:bg-theme_01-orange_fonce">04</button>
+    </div>
+    </div>
+  </main>
+</body>
+
+</html>
