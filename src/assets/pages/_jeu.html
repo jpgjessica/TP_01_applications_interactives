@@ -3,37 +3,36 @@
 
 <head>
   <meta charset="UTF-8" />
-  <script type="module" src="../js/main.js" defer></script>
+  <script type="module" src="../js/_jeu.js" defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/x-icon" href="./favicon.svg">
   <title>TP_01_Trivia_Jeu</title>
 </head>
 
 <body class="bg-theme_01-mauve min-h-screen flex flex-col justify-between flex-grow">
-  <header class="flex flex-row justify-between col-span-4 md:col-span-12 md:m-5">
-    <div class="flex flex-row items-center gap-10 p-10">
-      <img class="h-12" src="/img/icons/etoile_transparant.svg" alt="Étoile de ponctuation">
-      <span class="font-extralight text-6xl">00</span>
+  <header class="flex flex-row justify-between col-span-4 md:col-span-12">
+    <div class="flex flex-row items-center gap-4 p-10">
+      <img class="countScoreStar h-12" src="/img/icons/etoile_transparant.svg" alt="Étoile de ponctuation">
+      <span class="countScore font-extralight text-4xl">00</span>
     </div>
     <div class="flex justify-center items-center"></div>
-    <img class="animate__animated animate__tada h-36 md:h-24 border-theme_01-noir" src="/img/logo/logo.png"
+    <img class="animate__animated animate__tada h-36 border-theme_01-noir p-5" src="/img/logo/logo.png"
       alt="Une bulle d'information mauve avec l'inscription Trivia au centre">
     </div>
   </header>
 
-  <main class="flex flex-col flex-grow items-center justify-end md:justify-center gap-28 md:gap-12 h-full">
-    <div class="flex flex-col justify-end gap-5 md:gap-10">
-
+  <main class="flex flex-col flex-grow items-center justify-center md:justify-center gap-14 md:gap-12 h-full">
+    <div class="flex flex-col justify-end">
       <section class="w-80 flex justify-center items-center">
         <div>
           <div class="p-2 flex flex-row gap-5 items-center">
             <img class="h-8" src="/img/icons/alarm.svg" alt="">
-            <span class="text-2xl">00:00</span>
+            <span class="minuteurHtml text-2xl">00:00</span>
           </div>
           <div
-            class="flex flex-col w-full md:p-5 border-2 border-theme_01-noir bg-theme_01-orange text-theme_01-noir font-normal text-2xl rounded-3xl shadow-custom-black ">
-            <span>00/00</span>
-            <div class="flex justify-center items-center text-center p-5">
+            class="flex flex-col w-full p-3 border-2 border-theme_01-noir bg-theme_01-orange text-theme_01-noir font-normal text-2xl rounded-3xl shadow-custom-black">
+            <span class="questionCountHtml p-2">00/00</span>
+            <div class="flex justify-center items-center text-center pb-5">
               <span class="question"></span>
             </div>
           </div>
@@ -41,20 +40,19 @@
       </section>
     </div>
     <div class="w-80 flex flex-col justify-end gap-2 options">
-      <!-- Les boutons seront ajoutés ici dynamiquement par JavaScript -->
-  </div>
+    </div>
     </div>
   </main>
-  <footer class="flex flex-col items-center p-5">
+  <footer class="flex flex-col items-center p-3">
     <div class="w-80 flex flex-row justify-between">
       <div>
-        <button
-          class="uppercase md:hover:underline md:hover:font-semibold active:text-blue-500 focus:text-blue-500">Quit</button>
+        <a href="/index.html"
+          class="uppercase md:hover:underline md:hover:font-semibold active:text-blue-500 focus:text-blue-500">Quit</a>
       </div>
       <div>
-        <button
+        <a href="/index.html"
           class="lowercase md:hover:underline md:hover:font-semibold active:text-blue-500 focus:text-blue-500">Pick it
-          up later</button>
+          up later</a>
       </div>
     </div>
   </footer>
