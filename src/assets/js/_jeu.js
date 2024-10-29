@@ -5,6 +5,7 @@ const optionsHtml = document.querySelector('.options');
 const scoreCountHtml = document.querySelector('.countScore');
 const questionCountHtml = document.querySelector('.questionCountHtml');
 const minuteurHtml = document.querySelector('.minuteurHtml');
+const pickItUpLaterHtml = document.querySelector('.pickItUpLaterHtml');
 let currentQuestionIndex = 0;
 let questions = [];
 let scoreCount = 0;
@@ -73,9 +74,9 @@ function updateScore() {
     if (percentage < 40) {
         starImage = '/img/icons/etoile_rouge.svg';
     } else if (percentage >= 40 && percentage < 60) {
-        starImage = './img/icons/etoile_jaune.svg';
+        starImage = '/img/icons/etoile_jaune.svg';
     } else {
-        starImage = './img/icons/etoile_vert-jaune';
+        starImage = '/img/icons/etoile_vert-jaune';
     }
     document.querySelector('.countScoreStar').src = starImage;
 };
@@ -110,5 +111,29 @@ function initializeMinuteur() {
     return timer;
 }
 
+function pickItUpLater() {
+    localStorage.setItem('questions', JSON.stringify(questions));
+    localStorage.setItem('currentQuestionIndex', JSON.stringify(currentQuestionIndex));
+    localStorage.setItem('scoreCount', JSON.stringify(scoreCount));
+}
+
+pickItUpLaterHtml.addEventListener('click', () => {
+    pickItUpLater()
+})
+
+function startApp() {
+    let itsContinueGame = JSON.parse(localStorage.getItem('continueGame'));
+    if (itsContinueGame == true) {
+        questions = JSON.parse(localStorage.getItem('questions'));
+        currentQuestionIndex = JSON.parse(localStorage.getItem('currentQuestionIndex'));
+        scoreCount = JSON.parse(localStorage.getItem('scoreCount'));
+        showQuestion(questions[currentQuestionIndex]);
+        updateScore();
+    } else {
+        fetchQuestions();
+    }
+}
+
+startApp();
 fetchQuestions();
 
