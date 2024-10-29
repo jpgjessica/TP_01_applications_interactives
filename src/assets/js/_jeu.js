@@ -115,12 +115,23 @@ function pickItUpLater() {
     localStorage.setItem('questions', JSON.stringify(questions));
     localStorage.setItem('currentQuestionIndex', JSON.stringify(currentQuestionIndex));
     localStorage.setItem('scoreCount', JSON.stringify(scoreCount));
-
 }
 
-pickItUpLater()
-// pickItUpLaterHtml.addEventListener('click', () => {
+pickItUpLaterHtml.addEventListener('click', () => {
+    pickItUpLater()
+})
 
-// })
+function startApp() {
+    let itsContinueGame = JSON.parse(localStorage.getItem('continueGame'));
+    if (itsContinueGame == true) {
+        questions = JSON.parse(localStorage.getItem('questions'));
+        currentQuestionIndex = JSON.parse(localStorage.getItem('currentQuestionIndex'));
+        scoreCount = JSON.parse(localStorage.getItem('scoreCount'));
+        showQuestion(questions[currentQuestionIndex]);
+        updateScore();
+    } else {
+        fetchQuestions();
+    }
+}
 
-fetchQuestions();
+startApp();
