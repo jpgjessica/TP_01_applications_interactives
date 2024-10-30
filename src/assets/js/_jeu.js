@@ -1,15 +1,53 @@
-import '../css/style.css'
+import '../css/style.css';
 
+/**
+ * @type {HTMLElement}
+ */
 const questionHtml = document.querySelector('.question');
+
+/**
+ * @type {HTMLElement}
+ */
 const optionsHtml = document.querySelector('.options');
+
+/**
+ * @type {HTMLElement}
+ */
 const scoreCountHtml = document.querySelector('.countScore');
+
+/**
+ * @type {HTMLElement}
+ */
 const questionCountHtml = document.querySelector('.questionCountHtml');
+
+/**
+ * @type {HTMLElement}
+ */
 const minuteurHtml = document.querySelector('.minuteurHtml');
+
+/**
+ * @type {HTMLElement}
+ */
 const pickItUpLaterHtml = document.querySelector('.pickItUpLaterHtml');
+
+/**
+ * @type {number}
+ */
 let currentQuestionIndex = 0;
+
+/**
+ * @type {Array<Object>}
+ */
 let questions = [];
+
+/**
+ * @type {number}
+ */
 let scoreCount = 0;
 
+/**
+ * @param {Object} question
+ */
 function showQuestion(question) {
     questionCountHtml.textContent = currentQuestionIndex + 1 + '/' + questions.length;
 
@@ -36,10 +74,10 @@ function showQuestion(question) {
                 scoreCount++;
                 updateScore();
                 button.classList.add('bg-theme_01-vert', 'hover:bg-theme_01-vert_fonce');
-                disableButtons()
+                disableButtons();
             } else {
                 button.classList.add('bg-theme_01-rouge', 'hover:bg-theme_01-rouge_fonce');
-                disableButtons()
+                disableButtons();
             }
             setTimeout(() => {
                 currentQuestionIndex++;
@@ -63,12 +101,13 @@ function fetchQuestions() {
     let difficulty = JSON.parse(localStorage.getItem('Difficulty'));
     let type = JSON.parse(localStorage.getItem('Type'));
     let url = '';
+
     if (nbQuestions) {
-        url = 'https://opentdb.com/api.php?amount=' + nbQuestions + '&category=' + categories + '&difficulty=' + difficulty + '&type=' + type
-    }
-    else {
+        url = 'https://opentdb.com/api.php?amount=' + nbQuestions + '&category=' + categories + '&difficulty=' + difficulty + '&type=' + type;
+    } else {
         url = 'https://opentdb.com/api.php?amount=10';
     }
+
     fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -76,11 +115,11 @@ function fetchQuestions() {
             currentQuestionIndex = 0;
             localStorage.setItem('totalQuestions', JSON.stringify(questions.length));
             showQuestion(questions[currentQuestionIndex]);
-        }).catch(error => {
+        })
+        .catch(error => {
             alert('Ohohh, il me semble que cette API ne fonctionne pas très bien quand on fait plusieurs requêtes');
         });
 }
-
 
 function updateScore() {
     scoreCountHtml.textContent = scoreCount;
@@ -92,10 +131,10 @@ function updateScore() {
     } else if (percentage >= 40 && percentage < 60) {
         starImage = '/img/icons/etoile_jaune.svg';
     } else {
-        starImage = '/img/icons/etoile_vert-jaune';
+        starImage = '/img/icons/etoile_vert-jaune.svg'; // Corrigé l'extension manquante
     }
     document.querySelector('.countScoreStar').src = starImage;
-};
+}
 
 function disableButtons() {
     const allButtons = optionsHtml.querySelectorAll('button');
@@ -108,6 +147,9 @@ function disableButtons() {
     });
 }
 
+/**
+ * @returns {number}
+ */
 function initializeMinuteur() {
     let sec = 30;
     minuteurHtml.innerHTML = '00:' + sec;
@@ -135,12 +177,12 @@ function pickItUpLater() {
 }
 
 pickItUpLaterHtml.addEventListener('click', () => {
-    pickItUpLater()
-})
+    pickItUpLater();
+});
 
 function startApp() {
     let itsContinueGame = JSON.parse(localStorage.getItem('continueGame'));
-    if (itsContinueGame == true) {
+    if (itsContinueGame === true) {
         questions = JSON.parse(localStorage.getItem('questions'));
         currentQuestionIndex = JSON.parse(localStorage.getItem('currentQuestionIndex'));
         scoreCount = JSON.parse(localStorage.getItem('scoreCount'));
@@ -152,4 +194,3 @@ function startApp() {
 }
 
 startApp();
-
