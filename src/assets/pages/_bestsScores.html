@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <script type="module" src="../js/_jeu.js" defer></script>
-    <script type="module" src="../js/bestsScores.js" defer></script>
+    <script type="module" src="../js/_bestsScores.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/favicon.svg">
     <title>TP_01_Trivia_Jeu</title>
@@ -33,19 +33,23 @@
                 </div>
                 <div
                     class="flex justify-between m-2 min-h-[300px] p-3 text-xl bg-theme_01-orange border-2 border-theme_01-noir rounded-3xl ">
-                    <div>
-                        <span id="ranking"></span>
-                        <span id="score"></span>
-                    </div>
-                    <span id="date"></span>
+                    <ul class="listHtml w-full">
+                        <!-- <li class="flex flex-row justify-between">
+                            <div>
+                                <span class="rankingHtml">1.</span>
+                                <span class="scoreHtml">95%</span>
+                            </div>
+                            <span class="dateHtml">2024-10-25</span>
+                        </li> -->
+                    </ul>
                 </div>
             </div>
-        <div>
-            <a href="./_jeu.html" class="p-3 w-80 mt-4 md:w-96 flex flex-col justify-center items-center">
-                <button id="startButton"
-                    class="animate__animated animate__bounceIn w-full p-2 md:p-1 border-2 border-theme_01-noir bg-theme_01-rouge text-theme_01-noir font-black uppercase text-xl rounded-full shadow-custom-black md:shadow-none md:hover:shadow-custom-black hover:bg-theme_01-rouge_fonce active:bg-rouge_fonce focus:bg-rouge_fonce">Start</button>
-            </a>
-        </div>
+            <div>
+                <a href="./_jeu.html" class="p-3 w-80 mt-4 md:w-96 flex flex-col justify-center items-center">
+                    <button id="startButton"
+                        class="animate__animated animate__bounceIn w-full p-2 md:p-1 border-2 border-theme_01-noir bg-theme_01-rouge text-theme_01-noir font-black uppercase text-xl rounded-full shadow-custom-black md:shadow-none md:hover:shadow-custom-black hover:bg-theme_01-rouge_fonce active:bg-rouge_fonce focus:bg-rouge_fonce">Start</button>
+                </a>
+            </div>
     </main>
 </body>
 

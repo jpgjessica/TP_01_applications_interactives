@@ -56,5 +56,4 @@ startConfig.addEventListener('click', (e) => {
     let itsContinueGame = false;
     localStorage.setItem('continueGame', JSON.stringify(itsContinueGame));
     window.location.href = './_jeu.html';
-})
-
+});

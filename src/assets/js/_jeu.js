@@ -81,7 +81,6 @@ function fetchQuestions() {
         });
 }
 
-
 function updateScore() {
     scoreCountHtml.textContent = scoreCount;
     let percentage = (scoreCount / questions.length) * 100;
@@ -92,7 +91,7 @@ function updateScore() {
     } else if (percentage >= 40 && percentage < 60) {
         starImage = '/img/icons/etoile_jaune.svg';
     } else {
-        starImage = '/img/icons/etoile_vert-jaune';
+        starImage = '/img/icons/etoile_vert-jaune.svg';
     }
     document.querySelector('.countScoreStar').src = starImage;
 };
