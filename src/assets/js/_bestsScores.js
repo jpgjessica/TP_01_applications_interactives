@@ -1,5 +1,7 @@
 import '../css/style.css';
-
+/**
+ * @type {HTMLElement}
+ */
 let scoreListElement = document.querySelector('.listHtml');
 
 function displayScoresList() {
