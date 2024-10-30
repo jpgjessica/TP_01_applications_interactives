@@ -58,15 +58,30 @@ function showQuestion(question) {
 }
 
 function fetchQuestions() {
-    fetch('https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple')
+    // localStorage.setItem('NbOfQuestions', JSON.stringify(numQuestionsDisplay.textContent));
+    // localStorage.setItem('Categories', JSON.stringify(categoryDropdown.options[categoryDropdown.selectedIndex].value));
+    // localStorage.setItem('Difficulty', JSON.stringify(difficulty.options[difficulty.selectedIndex].value));
+    // localStorage.setItem('Type', JSON.stringify(type.options[type.selectedIndex].value));
+
+
+
+    let nbQuestions = JSON.parse(localStorage.getItem('NbOfQuestions'));
+    let difficulty = JSON.parse(localStorage.getItem('Difficulty'));
+    let type = JSON.parse(localStorage.getItem('Type'));
+
+
+    fetch('https://opentdb.com/api.php?amount=' + nbQuestions + '&' + difficulty + '&' + type);
         .then(response => response.json())
         .then(data => {
             questions = data.results;
             currentQuestionIndex = 0;
             localStorage.setItem('totalQuestions', JSON.stringify(questions.length));
             showQuestion(questions[currentQuestionIndex]);
-        })
+        }).catch(error => {
+            console.error('Ohohh, il me semble que cette API ne fonctionne pas très bien quand on fait plusieurs requêtes', error);
+        });
 }
+
 
 function updateScore() {
     scoreCountHtml.textContent = scoreCount;
