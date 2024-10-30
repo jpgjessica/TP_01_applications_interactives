@@ -2,65 +2,73 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8" />
-<script type="module" src="../js/_jeu.js" defer></script>
-<script type="module" src="../js/config.js" defer></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/x-icon" href="./favicon.svg">
-<title>TP_01_Trivia_Jeu</title>
+    <meta charset="UTF-8" />
+    <script type="module" src="../js/_jeu.js" defer></script>
+    <script type="module" src="../js/config.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./favicon.svg">
+    <title>TP_01_Trivia_Jeu</title>
 </head>
 
 <body class="bg-theme_01-noir min-h-screen flex flex-col justify-between flex-grow">
     <header class="flex flex-row justify-between col-span-4 md:col-span-12">
-    <div class="flex flex-row items-center gap-4 p-10">
-        <a href="/src/index.html">
-            <img class="h-12" src="/img/icons/arrow_back.svg" alt="Flèche de retour">
-        </a>
-    </div>
-    <div class="flex justify-center items-center"></div>
-    <img class="animate__animated animate__tada h-36 border-theme_01-noir p-5" src="/img/logo/logo.png"
-        alt="Une bulle d'information mauve avec l'inscription Trivia au centre">
-    </div>
+        <div class="flex flex-row items-center gap-4 p-10">
+            <a href="/index.html">
+                <img class="h-12" src="/img/icons/arrow_back.svg" alt="Flèche de retour">
+            </a>
+        </div>
+        <div class="flex justify-center items-center"></div>
+        <img class="animate__animated animate__tada h-36 border-theme_01-noir p-5" src="/img/logo/logo.png"
+            alt="Une bulle d'information mauve avec l'inscription Trivia au centre">
+        </div>
     </header>
 
     <main class="flex flex-col flex-grow items-center justify-center md:justify-center gap-6 md:gap-6 h-full">
         <h1 class="text-theme_01-mauve text-2xl">Configurations</h1>
         <form id="configForm" class="p-3 rounded-lg w-80 md:w-96 text-xl">
-            
+
             <div class="mb-4">
                 <label for="numQuestions" class="block text-theme_01-mauve mb-2">Number of Questions</label>
-                <div class="flex justify-between items-center px-3 md:py-1 bg-theme_01-orange p-2 border-2 border-theme_01-noir rounded-3xl hover:bg-theme_01-orange_fonce active:bg-theme_01-orange_fonce focus:bg-theme_01-orange_fonce">
-                    <span id="numQuestionsDisplay" class=" text-theme_01-noir">10</span> <!-- Affiche le nombre de questions -->
+                <div
+                    class="flex justify-between items-center px-3 md:py-1 bg-theme_01-orange p-2 border-2 border-theme_01-noir rounded-3xl hover:bg-theme_01-orange_fonce active:bg-theme_01-orange_fonce focus:bg-theme_01-orange_fonce">
+                    <span id="numQuestionsDisplay" class=" text-theme_01-noir">10</span>
+                    <!-- Affiche le nombre de questions -->
                     <div class="relative cursor-pointer w-4 h-4 ml-2">
-                        <img src="/img/icons/unfold.svg" alt="Flèches" class="absolute inset-0 w-full h-full" id="toggleQuestions">
+                        <img src="/img/icons/unfold.svg" alt="Flèches" class="absolute inset-0 w-full h-full"
+                            id="toggleQuestions">
                     </div>
                 </div>
             </div>
 
             <div class="mb-4">
                 <label for="category" class="block text-theme_01-mauve mb-2">Category</label>
-                <div class="flex justify-between items-center px-3 md:py-1 bg-theme_01-orange p-2 border-2 border-theme_01-noir rounded-3xl hover:bg-theme_01-orange_fonce active:bg-theme_01-orange_fonce focus:bg-theme_01-orange_fonce">
-                    <select id="category" class="w-full bg-transparent appearance-none focus:outline-none cursor-pointer">
+                <div
+                    class="flex justify-between items-center px-3 md:py-1 bg-theme_01-orange p-2 border-2 border-theme_01-noir rounded-3xl hover:bg-theme_01-orange_fonce active:bg-theme_01-orange_fonce focus:bg-theme_01-orange_fonce">
+                    <select id="category"
+                        class="w-full bg-transparent appearance-none focus:outline-none cursor-pointer">
                     </select>
                     <img src="/img/icons/chevron_down.svg" alt="Flèche dropdown" class="w-4 h-4 ml-2">
                 </div>
             </div>
 
             <div class="mb-4">
-                    <label for="difficulty" class="block text-theme_01-mauve mb-2">Difficulty</label>
-                    <div class="flex justify-between items-center px-3 md:py-1 bg-theme_01-orange p-2 border-2 border-theme_01-noir rounded-3xl hover:bg-theme_01-orange_fonce active:bg-theme_01-orange_fonce focus:bg-theme_01-orange_fonce">
-                        <select id="difficulty" class="w-full bg-transparent appearance-none focus:outline-none cursor-pointer">
-                            <option value="easy">Easy</option>
-                            <option value="medium">Medium</option>
-                            <option value="hard">Hard</option>
-                        </select>
-                        <img src="/img/icons/chevron_down.svg" alt="Flèche dropdown" class="w-4 h-4 ml-2">
-                    </div>
+                <label for="difficulty" class="block text-theme_01-mauve mb-2">Difficulty</label>
+                <div
+                    class="flex justify-between items-center px-3 md:py-1 bg-theme_01-orange p-2 border-2 border-theme_01-noir rounded-3xl hover:bg-theme_01-orange_fonce active:bg-theme_01-orange_fonce focus:bg-theme_01-orange_fonce">
+                    <select id="difficulty"
+                        class="w-full bg-transparent appearance-none focus:outline-none cursor-pointer">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                    <img src="/img/icons/chevron_down.svg" alt="Flèche dropdown" class="w-4 h-4 ml-2">
+                </div>
             </div>
 
             <div>
-            <label for="type" class="block text-theme_01-mauve mb-2">Type</label>
-                <div class="flex justify-between items-center px-3 md:py-1 bg-theme_01-orange p-2 border-2 border-theme_01-noir rounded-3xl hover:bg-theme_01-orange_fonce active:bg-theme_01-orange_fonce focus:bg-theme_01-orange_fonce">
+                <label for="type" class="block text-theme_01-mauve mb-2">Type</label>
+                <div
+                    class="flex justify-between items-center px-3 md:py-1 bg-theme_01-orange p-2 border-2 border-theme_01-noir rounded-3xl hover:bg-theme_01-orange_fonce active:bg-theme_01-orange_fonce focus:bg-theme_01-orange_fonce">
                     <select id="type" class="w-full bg-transparent appearance-none focus:outline-none cursor-pointer">
                         <option value="multiple">Multiple Choice</option>
                         <option value="boolean">True / False</option>
@@ -70,12 +78,12 @@
             </div>
         </form>
 
-            <div>
-                <a href="./_jeu.html" class="p-3 w-80 md:w-96 flex flex-col justify-center items-center">
-                    <button
-                    id="startButton" class="animate__animated animate__bounceIn w-full mb-2 p-2 md:p-1 border-2 border-theme_01-noir bg-theme_01-rouge text-theme_01-noir font-black uppercase text-xl rounded-full shadow-custom-black md:shadow-none md:hover:shadow-custom-black hover:bg-theme_01-rouge_fonce active:bg-rouge_fonce focus:bg-rouge_fonce">Start</button>
-                </a>
-            </div>
+        <div>
+            <a href="./_jeu.html" class="p-3 w-80 md:w-96 flex flex-col justify-center items-center">
+                <button id="startButton"
+                    class="animate__animated animate__bounceIn w-full mb-2 p-2 md:p-1 border-2 border-theme_01-noir bg-theme_01-rouge text-theme_01-noir font-black uppercase text-xl rounded-full shadow-custom-black md:shadow-none md:hover:shadow-custom-black hover:bg-theme_01-rouge_fonce active:bg-rouge_fonce focus:bg-rouge_fonce">Start</button>
+            </a>
+        </div>
     </main>
 </body>
 
