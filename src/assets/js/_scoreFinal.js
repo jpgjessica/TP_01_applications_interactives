@@ -27,5 +27,7 @@ finalScore()
 const playAgainHtml = document.querySelector('.playAgainHtml');
 playAgainHtml.addEventListener('click', (e) => {
     e.preventDefault();
+    let itsContinueGame = false;
+    localStorage.setItem('continueGame', JSON.stringify(itsContinueGame));
     window.location.href = './_jeu.html';
 })

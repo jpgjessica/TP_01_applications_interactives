@@ -1,28 +1,27 @@
 import '../css/style.css';
+const categoryDropdown = document.querySelector('.categoryHtml');
+const toggleButton = document.querySelector('.toggleQuestionsHtml');
+const numQuestionsDisplay = document.querySelector('.numQuestionsDisplayHtml');
+const startConfig = document.querySelector('.startConfigHtml');
+const difficulty = document.querySelector('.difficultyHtml');
+const type = document.querySelector('.typeHtml')
 
-async function fetchCategories() {
-    try {
-        const response = await fetch('https://opentdb.com/api_category.php');
-        const data = await response.json();
-        const categories = data.trivia_categories;
-
-        const categoryDropdown = document.getElementById('category');
-        categories.forEach(category => {
-            const option = document.createElement('option');
-            option.value = category.id;
-            option.textContent = category.name;
-            categoryDropdown.appendChild(option);
+function fetchCategories() {
+    fetch('https://opentdb.com/api_category.php')
+        .then(response => response.json())
+        .then(data => {
+            let categories = data.trivia_categories;
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category.id;
+                option.textContent = category.name;
+                categoryDropdown.appendChild(option);
+            })
         });
-    } catch (error) {
-        console.error('Error fetching categories:', error);
-    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchCategories();
-
-    const toggleButton = document.getElementById('toggleQuestions');
-    const numQuestionsDisplay = document.getElementById('numQuestionsDisplay');
     let numQuestions = 10;
 
     const updateDisplay = () => {
@@ -47,4 +46,15 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDisplay();
 });
 
+
+startConfig.addEventListener('click', (e) => {
+    e.preventDefault();
+    localStorage.setItem('NbOfQuestions', JSON.stringify(numQuestionsDisplay.textContent));
+    localStorage.setItem('Categories', JSON.stringify(categoryDropdown.options[categoryDropdown.selectedIndex].value));
+    localStorage.setItem('Difficulty', JSON.stringify(difficulty.options[difficulty.selectedIndex].value));
+    localStorage.setItem('Type', JSON.stringify(type.options[type.selectedIndex].value));
+    let itsContinueGame = false;
+    localStorage.setItem('continueGame', JSON.stringify(itsContinueGame));
+    window.location.href = './_jeu.html';
+})
 
