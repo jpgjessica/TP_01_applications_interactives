@@ -1,4 +1,9 @@
-import '../css/style.css'
+import '../css/style.css';
+import troisEtoilesVerts from './img/icons/trois_etoile_vert-jaune.png';
+import troisEtoilesRouges from './img/icons/trois_etoiles_rouge.png';
+import troisEtoilesOranges from './img/icons/trois_etoiles_orange.png';
+
+/img/icons / trois_etoile_vert - jaune.png
 
 let finalScoreQuestionsHtml = document.querySelector('.finalScoreQuestionsHtml');
 let finalScorePercentageHtml = document.querySelector('.finalScoreHtml');
@@ -26,11 +31,11 @@ function finalScore() {
     let finalScoreStarsHtml;
 
     if (finalScorePercentage < 40) {
-        finalScoreStarsHtml = '/img/icons/trois_etoiles_rouge.png';
+        finalScoreStarsHtml = troisEtoilesRouges;
     } else if (finalScorePercentage >= 40 && finalScorePercentage < 60) {
-        finalScoreStarsHtml = '/img/icons/trois_etoiles_orange.png';
+        finalScoreStarsHtml = troisEtoilesOranges;
     } else {
-        finalScoreStarsHtml = '/img/icons/trois_etoile_vert-jaune.png';
+        finalScoreStarsHtml = troisEtoilesVerts;
     }
     document.querySelector('.finalScoreStarsHtml').src = finalScoreStarsHtml;
 

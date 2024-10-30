@@ -1,4 +1,7 @@
 import '../css/style.css'
+import etoilesRouge from './img/icons/etoile_rouge.svg';
+import etoilesVert from './img/icons/etoile_vert-jaune.svg';
+import etoilesOrange from './img/icons/etoile_jaune.svg';
 
 const questionHtml = document.querySelector('.question');
 const optionsHtml = document.querySelector('.options');
@@ -87,11 +90,11 @@ function updateScore() {
 
     let starImage;
     if (percentage < 40) {
-        starImage = '/img/icons/etoile_rouge.svg';
+        starImage = etoilesRouge;
     } else if (percentage >= 40 && percentage < 60) {
-        starImage = '/img/icons/etoile_jaune.svg';
+        starImage = etoilesOrange;
     } else {
-        starImage = '/img/icons/etoile_vert-jaune.svg';
+        starImage = etoilesVert;
     }
     document.querySelector('.countScoreStar').src = starImage;
 };
