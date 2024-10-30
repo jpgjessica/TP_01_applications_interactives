@@ -138,3 +138,5 @@ function startApp() {
 }
 
 startApp();
+fetchQuestions();
+
