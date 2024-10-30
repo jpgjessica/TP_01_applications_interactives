@@ -1,7 +1,4 @@
 import '../css/style.css'
-import etoilesRouge from './../img/icons/etoile_rouge.svg';
-import etoilesVert from '../../img/icons/etoile_vert-jaune.svg';
-import etoilesOrange from '../../img/icons/etoile_jaune.svg';
 
 const questionHtml = document.querySelector('.question');
 const optionsHtml = document.querySelector('.options');
@@ -90,11 +87,11 @@ function updateScore() {
 
     let starImage;
     if (percentage < 40) {
-        starImage = etoilesRouge;
+        starImage = '/img/icons/etoile_rouge.svg';
     } else if (percentage >= 40 && percentage < 60) {
-        starImage = etoilesOrange;
+        starImage = '/img/icons/etoile_jaune.svg';
     } else {
-        starImage = etoilesVert;
+        starImage = '/img/icons/etoile_vert-jaune.svg';
     }
     document.querySelector('.countScoreStar').src = starImage;
 };
@@ -154,3 +151,4 @@ function startApp() {
 }
 
 startApp();
+
