@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <script type="module" src="../js/_scoreFinal.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./favicon.svg">
+    <title>TP_01_Trivia_Jeu</title>
+</head>
+
+<body class="bg-theme_01-orange min-h-screen flex flex-col justify-between">
+    <header class="flex justify-end">
+        <img class="animate__animated animate__tada h-36 border-theme_01-noir p-5" src="/img/logo/logo.png"
+            alt="Une bulle d'information mauve avec l'inscription Trivia au centre">
+    </header>
+    <main class="flex flex-col items-center justify-between md:justify-center gap-28 md:gap-20">
+        <h1 class="flex items-center text-2xl">Your Score</h1>
+        <div class="flex flex-col items-center gap-2">
+            <img src="/img/icons/etoile_vert-jaune.svg" alt="trois etoiles" class="finalScoreStarsHtml">
+            <span class="finalScoreQuestionsHtml text-center font-semibold text-2xl">18/20</span>
+            <span class="finalScoreHtml text-center font-bold text-4xl">95%</span>
+        </div>
+        <button
+            class="w-80 md:w-96  animate__animated animate__bounceIn flex justify-center items-center mb-2 p-2 md:p-1 border-2 border-theme_01-noir bg-theme_01-mauve text-theme_01-noir font-black uppercase text-xl rounded-full shadow-custom-black md:shadow-none md:hover:shadow-custom-black hover:bg-theme_01-mauve_fonce active:bg-mauve_fonce focus:bg-mauve_fonce playAgainHtml">
+            Play Again
+        </button>
+        </div>
+    </main>
+    <footer class="p-5">
+    </footer>
+</body>
+
+</html>

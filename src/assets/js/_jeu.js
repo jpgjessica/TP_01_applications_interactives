@@ -46,9 +46,10 @@ function showQuestion(question) {
                 if (currentQuestionIndex < questions.length) {
                     showQuestion(questions[currentQuestionIndex]);
                 } else {
-                    alert('Quiz finished!');
                     button.classList.remove('bg-theme_01-vert', 'bg-theme_01-rouge');
                     button.classList.add('bg-theme_01-orange');
+                    localStorage.setItem('finalScore', JSON.stringify(scoreCount));
+                    window.location.href = './_scoreFinal.html';
                 }
             }, 2000);
         });
@@ -62,6 +63,7 @@ function fetchQuestions() {
         .then(data => {
             questions = data.results;
             currentQuestionIndex = 0;
+            localStorage.setItem('totalQuestions', JSON.stringify(questions.length));
             showQuestion(questions[currentQuestionIndex]);
         })
 }
@@ -104,7 +106,8 @@ function initializeMinuteur() {
             if (currentQuestionIndex < questions.length) {
                 showQuestion(questions[currentQuestionIndex]);
             } else {
-                alert('Quiz finished!');
+                localStorage.setItem('finalScore', JSON.stringify(scoreCount));
+                window.location.href = './_scoreFinal.html';
             }
         }
     }, 1000);
