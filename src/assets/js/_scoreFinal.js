@@ -1,7 +1,7 @@
 import '../css/style.css';
-import troisEtoilesVerts from './img/icons/trois_etoile_vert-jaune.png';
-import troisEtoilesRouges from './img/icons/trois_etoiles_rouge.png';
-import troisEtoilesOranges from './img/icons/trois_etoiles_orange.png';
+import troisEtoilesVerts from '../img/icons/trois_etoile_vert-jaune.png';
+import troisEtoilesRouges from '../img/icons/trois_etoiles_rouge.png';
+import troisEtoilesOranges from '../img/icons/trois_etoiles_orange.png';
 
 /img/icons / trois_etoile_vert - jaune.png
 

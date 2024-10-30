@@ -1,7 +1,7 @@
 import '../css/style.css'
-import etoilesRouge from './img/icons/etoile_rouge.svg';
-import etoilesVert from './img/icons/etoile_vert-jaune.svg';
-import etoilesOrange from './img/icons/etoile_jaune.svg';
+import etoilesRouge from '../img/icons/etoile_rouge.svg';
+import etoilesVert from '../img/icons/etoile_vert-jaune.svg';
+import etoilesOrange from '../img/icons/etoile_jaune.svg';
 
 const questionHtml = document.querySelector('.question');
 const optionsHtml = document.querySelector('.options');
@@ -154,4 +154,3 @@ function startApp() {
 }
 
 startApp();
-
