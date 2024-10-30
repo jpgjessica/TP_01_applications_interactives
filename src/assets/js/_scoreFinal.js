@@ -1,14 +1,26 @@
 import '../css/style.css'
-
+/**
+ * @type {HTMLElement}
+ */
 let finalScoreQuestionsHtml = document.querySelector('.finalScoreQuestionsHtml');
+/**
+ * @type {HTMLElement}
+ */
 let finalScorePercentageHtml = document.querySelector('.finalScoreHtml');
 class Ranking {
+    /**
+     * @param {number}
+     * @param {string}
+     */
     constructor(percentage, date) {
         this.percentage = percentage;
         this.date = date;
     }
 }
 
+/**
+ * @returns {string}
+ */
 function getFormatedDate() {
     const date = new Date();
 

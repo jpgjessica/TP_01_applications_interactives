@@ -1,15 +1,44 @@
 import '../css/style.css'
-
+/**
+ * @type {HTMLElement}
+ */
 const questionHtml = document.querySelector('.question');
+/**
+ * @type {HTMLElement}
+ */
 const optionsHtml = document.querySelector('.options');
+/**
+ * @type {HTMLElement}
+ */
 const scoreCountHtml = document.querySelector('.countScore');
+/**
+ * @type {HTMLElement}
+ */
 const questionCountHtml = document.querySelector('.questionCountHtml');
+/**
+ * @type {HTMLElement}
+ */
 const minuteurHtml = document.querySelector('.minuteurHtml');
+/**
+ * @type {HTMLElement}
+ */
 const pickItUpLaterHtml = document.querySelector('.pickItUpLaterHtml');
+/**
+ * @type {number}
+ */
 let currentQuestionIndex = 0;
+/**
+ * @type {Array}
+ */
 let questions = [];
+/**
+ * @type {number}
+ */
 let scoreCount = 0;
 
+/**
+ * @param {Object}
+ */
 function showQuestion(question) {
     questionCountHtml.textContent = currentQuestionIndex + 1 + '/' + questions.length;
 
@@ -107,6 +136,9 @@ function disableButtons() {
     });
 }
 
+/**
+ * @returns {number}
+ */
 function initializeMinuteur() {
     let sec = 30;
     minuteurHtml.innerHTML = '00:' + sec;

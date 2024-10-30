@@ -1,9 +1,27 @@
 import '../css/style.css';
+/**
+ * @type {HTMLElement}
+ */
 const categoryDropdown = document.querySelector('.categoryHtml');
+/**
+ * @type {HTMLElement}
+ */
 const toggleButton = document.querySelector('.toggleQuestionsHtml');
+/**
+ * @type {HTMLElement}
+ */
 const numQuestionsDisplay = document.querySelector('.numQuestionsDisplayHtml');
+/**
+ * @type {HTMLElement}
+ */
 const startConfig = document.querySelector('.startConfigHtml');
+/**
+ * @type {HTMLElement}
+ */
 const difficulty = document.querySelector('.difficultyHtml');
+/**
+ * @type {HTMLElement}
+ */
 const type = document.querySelector('.typeHtml')
 
 function fetchCategories() {
