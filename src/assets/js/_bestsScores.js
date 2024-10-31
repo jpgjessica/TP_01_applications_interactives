@@ -36,5 +36,4 @@ function displayScoresList() {
         scoreListElement.appendChild(scoreLi);
     });
 }
-
 displayScoresList();
