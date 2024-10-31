@@ -12,44 +12,35 @@
 
 <body class="bg-theme_01-noir min-h-screen flex flex-col justify-between flex-grow">
     <header class="flex flex-row justify-between col-span-4 md:col-span-12">
-        <div class="flex flex-row items-center gap-4 p-10">
+        <div class="flex flex-row items-start p-6 md:p-10">
             <a href="/index.html">
-                <img class="h-12" src="/img/icons/arrow_back.svg" alt="Flèche de retour">
+                <img class="h-8 md:h-12" src="../img/icons/arrow_back.svg" alt="Flèche de retour">
             </a>
         </div>
         <a href="/index.html">
-            <img class="animate__animated animate__tada h-36 border-theme_01-noir p-5" src="/img/logo/logo.png"
+            <img class="animate__animated animate__tada h-36 border-theme_01-noir p-5" src="../img/logo/logo.png"
                 alt="Une bulle d'information mauve avec l'inscription Trivia au centre"></a>
         </div>
     </header>
-
-    <main class="flex flex-col flex-grow gap-6 items-center h-full">
+    <main class="flex flex-col flex-grow gap-6 items-center h-full justify-between ">
         <h1 class="text-theme_01-mauve text-2xl mb-6">Best 10 scores</h1>
-        <div class="mb-4">
-            <div>
-                <div class="flex justify-between px-5 text-2xl">
-                    <div class="block text-theme_01-mauve mb-2">Score</div>
-                    <div class="block text-theme_01-mauve mb-2">Date</div>
-                </div>
-                <div
-                    class="flex justify-between m-2 min-h-[300px] p-3 text-xl bg-theme_01-orange border-2 border-theme_01-noir rounded-3xl ">
-                    <ul class="listHtml w-full">
-                        <!-- <li class="flex flex-row justify-between">
-                            <div>
-                                <span class="rankingHtml">1.</span>
-                                <span class="scoreHtml">95%</span>
-                            </div>
-                            <span class="dateHtml">2024-10-25</span>
-                        </li> -->
-                    </ul>
-                </div>
+        <div class="w-80 md:w-96">
+            <div class="flex justify-between px-5 text-2xl">
+                <div class="block text-theme_01-mauve mb-2">Score</div>
+                <div class="block text-theme_01-mauve mb-2">Date</div>
             </div>
-            <div>
-                <a href="./_jeu.html" class="p-3 w-80 mt-4 md:w-96 flex flex-col justify-center items-center">
-                    <button id="startButton"
-                        class="animate__animated animate__bounceIn w-full p-2 md:p-1 border-2 border-theme_01-noir bg-theme_01-rouge text-theme_01-noir font-black uppercase text-xl rounded-full shadow-custom-black md:shadow-none md:hover:shadow-custom-black hover:bg-theme_01-rouge_fonce active:bg-rouge_fonce focus:bg-rouge_fonce">Start</button>
-                </a>
+            <div
+                class="flex justify-between m-2 min-h-[300px] p-3 text-xl bg-theme_01-orange border-2 border-theme_01-noir rounded-3xl ">
+                <ul class="listHtml w-full">
+                </ul>
             </div>
+        </div>
+        <div>
+            <a href="./_jeu.html" class="p-3 w-80 mt-4 md:w-96 flex flex-col justify-center items-center">
+                <button id="startButton"
+                    class="animate__animated animate__bounceIn w-full p-2 md:p-1 border-2 border-theme_01-noir bg-theme_01-rouge text-theme_01-noir font-black uppercase text-xl rounded-full shadow-custom-black md:shadow-none md:hover:shadow-custom-black hover:bg-theme_01-rouge_fonce active:bg-rouge_fonce focus:bg-rouge_fonce">Start</button>
+            </a>
+        </div>
     </main>
 </body>
 

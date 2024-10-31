@@ -1,43 +1,37 @@
 import '../css/style.css'
+
+import etoileRouge from '../img/icons/etoile_rouge.svg';
+import etoileVert from '../img/icons/etoile_vert-jaune.svg';
+import etoileOrange from '../img/icons/etoile_jaune.svg';
+
 /**
  * @type {HTMLElement}
  */
 const questionHtml = document.querySelector('.question');
-/**
- * @type {HTMLElement}
- */
 const optionsHtml = document.querySelector('.options');
-/**
- * @type {HTMLElement}
- */
 const scoreCountHtml = document.querySelector('.countScore');
-/**
- * @type {HTMLElement}
- */
 const questionCountHtml = document.querySelector('.questionCountHtml');
-/**
- * @type {HTMLElement}
- */
 const minuteurHtml = document.querySelector('.minuteurHtml');
-/**
- * @type {HTMLElement}
- */
 const pickItUpLaterHtml = document.querySelector('.pickItUpLaterHtml');
+
 /**
  * @type {number}
  */
 let currentQuestionIndex = 0;
+
 /**
  * @type {Array}
  */
 let questions = [];
+
 /**
  * @type {number}
  */
 let scoreCount = 0;
 
 /**
- * @param {Object}
+ * Affiche la question et les options de réponses, gère le minuteur et vérifie des réponses.
+ * @param {Object} question
  */
 function showQuestion(question) {
     questionCountHtml.textContent = currentQuestionIndex + 1 + '/' + questions.length;
@@ -65,10 +59,10 @@ function showQuestion(question) {
                 scoreCount++;
                 updateScore();
                 button.classList.add('bg-theme_01-vert', 'hover:bg-theme_01-vert_fonce');
-                disableButtons()
+                disableButtons();
             } else {
                 button.classList.add('bg-theme_01-rouge', 'hover:bg-theme_01-rouge_fonce');
-                disableButtons()
+                disableButtons();
             }
             setTimeout(() => {
                 currentQuestionIndex++;
@@ -86,6 +80,9 @@ function showQuestion(question) {
     });
 }
 
+/**
+ * Récupère les questions depuis l'API Open Trivia et initialise le quiz.
+ */
 function fetchQuestions() {
     let nbQuestions = JSON.parse(localStorage.getItem('NbOfQuestions'));
     let categories = JSON.parse(localStorage.getItem('Categories'));
@@ -93,9 +90,8 @@ function fetchQuestions() {
     let type = JSON.parse(localStorage.getItem('Type'));
     let url = '';
     if (nbQuestions) {
-        url = 'https://opentdb.com/api.php?amount=' + nbQuestions + '&category=' + categories + '&difficulty=' + difficulty + '&type=' + type
-    }
-    else {
+        url = 'https://opentdb.com/api.php?amount=' + nbQuestions + '&category=' + categories + '&difficulty=' + difficulty + '&type=' + type;
+    } else {
         url = 'https://opentdb.com/api.php?amount=10';
     }
     fetch(url)
@@ -110,21 +106,27 @@ function fetchQuestions() {
         });
 }
 
+/**
+ * Met à jour l'affichage du score et de l'icône en fonction du pourcentage de réussite.
+ */
 function updateScore() {
     scoreCountHtml.textContent = scoreCount;
     let percentage = (scoreCount / questions.length) * 100;
 
     let starImage;
     if (percentage < 40) {
-        starImage = '/img/icons/etoile_rouge.svg';
+        starImage = etoileRouge;
     } else if (percentage >= 40 && percentage < 60) {
-        starImage = '/img/icons/etoile_jaune.svg';
+        starImage = etoileOrange;
     } else {
-        starImage = '/img/icons/etoile_vert-jaune.svg';
+        starImage = etoileVert;
     }
     document.querySelector('.countScoreStar').src = starImage;
-};
+}
 
+/**
+ * Désactive les boutons de réponse après une sélection.
+ */
 function disableButtons() {
     const allButtons = optionsHtml.querySelectorAll('button');
     allButtons.forEach(btn => {
@@ -137,6 +139,7 @@ function disableButtons() {
 }
 
 /**
+ * Initialise le minuteur pour chaque question.
  * @returns {number}
  */
 function initializeMinuteur() {
@@ -159,16 +162,25 @@ function initializeMinuteur() {
     return timer;
 }
 
+/**
+ * Sauvegarde l'état actuel du quiz dans le localStorage pour une reprise.
+ */
 function pickItUpLater() {
     localStorage.setItem('questions', JSON.stringify(questions));
     localStorage.setItem('currentQuestionIndex', JSON.stringify(currentQuestionIndex));
     localStorage.setItem('scoreCount', JSON.stringify(scoreCount));
 }
 
+/**
+ * Gère l'événement du clic sur le bouton "Pick it Up Later".
+ */
 pickItUpLaterHtml.addEventListener('click', () => {
-    pickItUpLater()
-})
+    pickItUpLater();
+});
 
+/**
+ * Démarre l'application en vérifiant si un jeu en cours peut être repris ou si de nouvelles questions doivent être récupérées.
+ */
 function startApp() {
     let itsContinueGame = JSON.parse(localStorage.getItem('continueGame'));
     if (itsContinueGame == true) {
@@ -183,4 +195,3 @@ function startApp() {
 }
 
 startApp();
-

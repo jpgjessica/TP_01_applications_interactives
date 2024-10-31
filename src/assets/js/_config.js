@@ -1,29 +1,18 @@
 import '../css/style.css';
+
 /**
  * @type {HTMLElement}
  */
 const categoryDropdown = document.querySelector('.categoryHtml');
-/**
- * @type {HTMLElement}
- */
 const toggleButton = document.querySelector('.toggleQuestionsHtml');
-/**
- * @type {HTMLElement}
- */
 const numQuestionsDisplay = document.querySelector('.numQuestionsDisplayHtml');
-/**
- * @type {HTMLElement}
- */
 const startConfig = document.querySelector('.startConfigHtml');
-/**
- * @type {HTMLElement}
- */
 const difficulty = document.querySelector('.difficultyHtml');
-/**
- * @type {HTMLElement}
- */
-const type = document.querySelector('.typeHtml')
+const type = document.querySelector('.typeHtml');
 
+/**
+ * Récupère les catégories de questions depuis l'API et les ajoute au menu déroulant
+ */
 function fetchCategories() {
     fetch('https://opentdb.com/api_category.php')
         .then(response => response.json())
@@ -34,10 +23,14 @@ function fetchCategories() {
                 option.value = category.id;
                 option.textContent = category.name;
                 categoryDropdown.appendChild(option);
-            })
+            });
         });
 }
 
+/**
+ * Exécute les fonctions d'initialisation une fois le DOM chargé
+ * Récupère les catégories et initialise le nombre de questions
+ */
 document.addEventListener('DOMContentLoaded', () => {
     fetchCategories();
     let numQuestions = 10;
@@ -46,6 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
         numQuestionsDisplay.textContent = numQuestions;
     };
 
+    /**
+     * Écouteur d'événement pour ajuster le nombre de questions
+     * 
+     * @param {MouseEvent} event - Événement de clic
+     */
     toggleButton.addEventListener('click', (event) => {
         const clickY = event.offsetY;
 
@@ -64,7 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDisplay();
 });
 
-
+/**
+ * Écouteur d'événement pour le bouton de démarrage de configuration du jeu
+ * Enregistre les configurations dans le localStorage et redirige vers la page du jeu
+ * 
+ * @param {Event} e - Événement de clic
+ */
 startConfig.addEventListener('click', (e) => {
     e.preventDefault();
     localStorage.setItem('NbOfQuestions', JSON.stringify(numQuestionsDisplay.textContent));

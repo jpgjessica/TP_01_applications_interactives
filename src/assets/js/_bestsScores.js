@@ -1,9 +1,15 @@
 import '../css/style.css';
+
 /**
+ * Élément HTML pour afficher la liste des scores
  * @type {HTMLElement}
  */
 let scoreListElement = document.querySelector('.listHtml');
 
+/**
+ * Affiche la liste des scores enregistrés dans le localStorage
+ * Crée une liste d'éléments avec le ranking, pourcentage de score et date
+ */
 function displayScoresList() {
     let bestRankings = JSON.parse(localStorage.getItem('bestsRankings')) || [];
 
